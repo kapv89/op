@@ -83,7 +83,7 @@ ${this.op.toString()}
       return this.mount(args[0]).run();
     }
 
-    this.vent.emit('start', {op: this});
+    this.vent.emit('start', {op: this, params: this.params});
 
     const typeErrs = Object.keys(this.types)
       .map((key) => ({type: this.types[key], key, param: this.params[key]}))
@@ -98,8 +98,8 @@ ${this.op.toString()}
     if (Object.keys(typeErrs).length > 0) {
       const err = new Error(JSON.stringify(typeErrs, null, 2));
 
-      this.vent.emit('err', {op: this, err});
-      this.vent.emit('end', {op: this, success: false});
+      this.vent.emit('err', {op: this, err, params: this.params});
+      this.vent.emit('end', {op: this, success: false, params: this.params});
 
       return Promise.reject(err);
     }
@@ -111,21 +111,21 @@ ${this.op.toString()}
         this.opStr() + 'op must be async, or must return a promise'
       );
 
-      this.vent.emit('err', {op: this, err});
-      this.vent.emit('end', {op: this, success: false});
+      this.vent.emit('err', {op: this, err, params: this.params});
+      this.vent.emit('end', {op: this, success: false, params: this.params});
 
       return Promise.reject(err);
     }
 
     return new Promise((resolve, reject) => {
       promise.then((result) => {
-        this.vent.emit('done', {op: this, result});
-        this.vent.emit('end', {op: this, success: true});
+        this.vent.emit('done', {op: this, result, params: this.params});
+        this.vent.emit('end', {op: this, success: true, params: this.params});
 
         resolve(result);
       }).catch((err) => {
-        this.vent.emit('err', {op: this, err});
-        this.vent.emit('end', {op: this, success: false});
+        this.vent.emit('err', {op: this, err, params: this.params});
+        this.vent.emit('end', {op: this, success: false, params: this.params});
 
         reject(err);
       });
