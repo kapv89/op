@@ -57,7 +57,7 @@ domainOp.run({db: new Db(config.db), api: new Api(config.api)});
 8. An `op.vent` is an event-aggregator on which the events `'start'`, `'err'`, `'done'`, and `'end'` are emitted att appropriate times in the lifecyclt of the `op`.
 
 ##### Op Events
-`op` uses `@krab/vent`[link](https://github.com/kapv89/vent). Each instance of class `Op` has a property `vent`, which is an event aggregator attached to that instance.
+`op` uses `@krab/vent`([link](https://github.com/kapv89/vent)). Each instance of class `Op` has a property `vent`, which is an event aggregator attached to that instance.
 Usage of `op.vent` given below.
 
 ```js
@@ -67,6 +67,4 @@ op.vent.on('start', ({op, params}) => {...});
 op.vent.on('err', ({op, err, params}) => {...});
 op.vent.on('done', ({op, result, params}) => {...});
 op.vent.on('end', ({op, success, params}) => {...});
-
-
 ```
