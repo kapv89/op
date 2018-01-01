@@ -54,7 +54,7 @@ domainOp.run({db: new Db(config.db), api: new Api(config.api)});
 5. An `op` can be run in 2 ways: `op.run(params)` or `op.mount(params).run()`.
 6. `op.mount` mounts a set of `params` in the op, so that `op.run` can be called without any arguments.
 7. An `op` can be cloned using `op.clone()`.
-8. An `op.vent` is an event-aggregator on which the events `'start'`, `'err'`, `'done'`, and `'end'` are emitted att appropriate times in the lifecyclt of the `op`.
+8. An `op.vent` is an event-aggregator on which the events `'start'`, `'err'`, `'done'`, and `'end'` are emitted at appropriate times in the lifecyclt of the `op`.
 
 ##### Op Events
 `op` uses `@krab/vent`([link](https://github.com/kapv89/vent)). Each instance of class `Op` has a property `vent`, which is an event aggregator attached to that instance.
