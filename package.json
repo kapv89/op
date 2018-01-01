@@ -1,7 +1,7 @@
 {
-  "name": "vent",
+  "name": "@krab/op",
   "version": "1.0.0",
-  "description": "An isomorphic event-aggregator",
+  "description": "Basic building block of domain logic",
   "main": "index.js",
   "scripts": {
     "test": "babel-node test/main.js",
@@ -12,18 +12,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/kapv89/vent.git"
+    "url": "git+ssh://git@github.com/kapv89/op.git"
   },
   "keywords": [
-    "events",
-    "isomorphic"
+    "async",
+    "domain-logic"
   ],
   "author": "Kapil Verma <kapv89@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kapv89/vent/issues"
+    "url": "https://github.com/kapv89/op/issues"
   },
-  "homepage": "https://github.com/kapv89/vent#readme",
+  "homepage": "https://github.com/kapv89/op#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.1.2",
@@ -35,6 +35,7 @@
     "eslint-plugin-react": "^7.5.1"
   },
   "dependencies": {
+    "@krab/vent": "^1.0.1",
     "lodash": "^4.17.4"
   }
 }
